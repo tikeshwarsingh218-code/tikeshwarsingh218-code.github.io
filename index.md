@@ -47,6 +47,7 @@ title: Home
     <a href="https://www.theigc.org/events/bread-igc-virtual-phd-courses/bread-igc-virtual-phd-level-course-political-economy-2026">BREAD IGC virtual PhD level course on political economy</a> (2026)<br>
     <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=_oivH5ipW0yTySEKEdmlwrXGAGzNbhpGqdoMSpWvq1xUNlQ1TkhRRTFEOTBaVkNXRUEwWFNVSVVFWi4u">Research talk and workshop with Harini Nagendra at UCL STEaPP</a> (2026)<br>
     <a href="https://ishet.in/ishet-2026-2/">ISHET 2026: Third Annual Conference of the Indian Society for the History of Economic Thought</a> (2026)</p>
+<a href="https://aea.am/2026-young-scholar-workshop/">2026 Young Scholar Workshop, Armenian Economic Association</a> (2026)
 
   </div>
 
