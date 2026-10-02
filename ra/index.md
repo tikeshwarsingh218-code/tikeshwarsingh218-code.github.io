@@ -7,6 +7,7 @@ title: Research Assistance
 
 I have provided research assistance to researchers working in development economics, labour economics, political economy, and related fields.
 
+- [A. Kalaiyarasan](https://www.mids.ac.in/kalaiyarsan/)
 - [Aaditya Dar](https://aadityadar.com/)
 - [Amrita Dhillon](https://sites.google.com/view/amrita-dhillon/bio)
 - [Anirvan Chowdhury](https://centers.louisville.edu/person/anirvan-chowdhury)
