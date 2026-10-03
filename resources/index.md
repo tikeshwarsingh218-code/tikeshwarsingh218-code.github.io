@@ -32,6 +32,9 @@ Selected graduate-level courses in development economics and related fields.
 
 
 #### Books
+
+A selection of books that I have read, am reading, or keep for reference.
+
 - [M. R. Sharan]({{ '/authors/m-r-sharan/' | relative_url }}): Last Among Equals: Power, Caste and Politics in Bihar’s Villages ([PDF]({{ '/books/Last-Among-Equals.pdf' | relative_url }}))
 - [J. W. Mason]({{ '/authors/j-w-mason/' | relative_url }}) and [Arjun Jayadev]({{ '/authors/arjun-jayadev/' | relative_url }}): Against Money ([PDF]({{ '/books/Against%20Money.pdf' | relative_url }}))
 - [Milton Friedman]({{ '/authors/milton-friedman/' | relative_url }}): Capitalism and Freedom ([PDF]({{ '/books/Capitalism%20and%20Freedom.pdf' | relative_url }}))
