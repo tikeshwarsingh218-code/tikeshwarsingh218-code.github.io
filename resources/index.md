@@ -31,6 +31,14 @@ Selected graduate-level courses in development economics and related fields.
 - [Spring 2008](https://ocw.mit.edu/courses/15-023j-global-climate-change-economics-science-and-policy-spring-2008/pages/syllabus/): Global Climate Change: Economics, Science, and Policy
 
 
+## Books
+
+A selection of books that I have read, am reading, or keep for reference.
+
+[View Books]({{ '/books/' | relative_url }})
+
+
+
 #### STEG and PEDL Virtual Courses
 
 Selected virtual courses and training resources in development economics, firms, structural transformation, and related areas.
