@@ -31,13 +31,29 @@ Selected graduate-level courses in development economics and related fields.
 - [Spring 2008](https://ocw.mit.edu/courses/15-023j-global-climate-change-economics-science-and-policy-spring-2008/pages/syllabus/): Global Climate Change: Economics, Science, and Policy
 
 
-## Books
+#### Books
 
-A selection of books that I have read, am reading, or keep for reference.
+• [M. R. Sharan]({{ '/authors/m-r-sharan/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Last%20Among%20Equals%20Power%2C%20Caste%20Politics%20in%20Bihar%E2%80%99s%20Villages%20%28M%20R%20Sharan%29%20%28z-library.sk%2C%201lib.sk%2C%20z-lib.sk%29.pdf) — Last Among Equals: Power, Caste and Politics in Bihar’s Villages
 
-[View Books]({{ '/books/' | relative_url }})
+• [J. W. Mason]({{ '/authors/j-w-mason/' | relative_url }}) and [Arjun Jayadev]({{ '/authors/arjun-jayadev/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Against%20Money.pdf) — Against Money
 
+• [Milton Friedman]({{ '/authors/milton-friedman/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Capitalism%20and%20Freedom.pdf) — Capitalism and Freedom
 
+• [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/End%20of%20Imagination.pdf) — The End of Imagination
+
+• [George Orwell]({{ '/authors/george-orwell/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/George%20Orwell%201984.pdf) — 1984
+
+• [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Mother%20Mary%20Comes%20to%20Me.pdf) — Mother Mary Comes to Me
+
+• [James C. Scott]({{ '/authors/james-c-scott/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Scott%20James%20C%20Seeing%20Like%20A%20State%201998.pdf) — Seeing Like a State
+
+• [Jean Drèze]({{ '/authors/jean-dreze/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Sense%20and%20Solidarity.pdf) — Sense and Solidarity: Jholawala Economics for Everyone
+
+• [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/The%20Cost%20of%20Living.pdf) — The Cost of Living
+
+• [Vandana Shiva]({{ '/authors/vandana-shiva/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/The%20Violence%20of%20the%20Green%20Revolution-Third-World-Agriculture-Ecology-and-Politics%20by%20Vandana-Shiva.pdf) — The Violence of the Green Revolution: Third World Agriculture, Ecology and Politics
+
+• [Rukmini S.]({{ '/authors/rukmini-s/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/whole%20numbers%20and%20half%20truths%20what%20data%20can%20and%20cannot%20tell%20us%20about%20modern%20India.pdf) — Whole Numbers and Half Truths: What Data Can and Cannot Tell Us About Modern India
 
 #### STEG and PEDL Virtual Courses
 
