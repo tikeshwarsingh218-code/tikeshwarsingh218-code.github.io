@@ -32,17 +32,17 @@ Selected graduate-level courses in development economics and related fields.
 
 
 #### Books
-- [M. R. Sharan](https://tikeshwarsingh218-code.github.io/authors/m-r-sharan/): Last Among Equals: Power, Caste and Politics in Bihar’s Villages ([View](file:///Users/tikeshwar/tikeshwar-home/books/Last%20Among%20Equals%20Power%2C%20Caste%20Politics%20in%20Bihar%E2%80%99s%20Villages%20%28M%20R%20Sharan%29%20%28z-library.sk%2C%201lib.sk%2C%20z-lib.sk%29.pdf))
-- [J. W. Mason](https://tikeshwarsingh218-code.github.io/authors/j-w-mason/) and [Arjun Jayadev](https://tikeshwarsingh218-code.github.io/authors/arjun-jayadev/): Against Money ([View](file:///Users/tikeshwar/tikeshwar-home/books/Against%20Money.pdf))
-- [Milton Friedman](https://tikeshwarsingh218-code.github.io/authors/milton-friedman/): Capitalism and Freedom ([View](file:///Users/tikeshwar/tikeshwar-home/books/Capitalism%20and%20Freedom.pdf))
-- [Arundhati Roy](https://tikeshwarsingh218-code.github.io/authors/arundhati-roy/): The End of Imagination ([View](file:///Users/tikeshwar/tikeshwar-home/books/End%20of%20Imagination.pdf))
-- [George Orwell](https://tikeshwarsingh218-code.github.io/authors/george-orwell/): 1984 ([View](file:///Users/tikeshwar/tikeshwar-home/books/George%20Orwell%201984.pdf))
-- [Arundhati Roy](https://tikeshwarsingh218-code.github.io/authors/arundhati-roy/): Mother Mary Comes to Me ([View](file:///Users/tikeshwar/tikeshwar-home/books/Mother%20Mary%20Comes%20to%20Me.pdf))
-- [James C. Scott](https://tikeshwarsingh218-code.github.io/authors/james-c-scott/): Seeing Like a State ([View](file:///Users/tikeshwar/tikeshwar-home/books/Scott%20James%20C%20Seeing%20Like%20A%20State%201998.pdf))
-- [Jean Drèze](https://tikeshwarsingh218-code.github.io/authors/jean-dreze/): Sense and Solidarity: Jholawala Economics for Everyone ([View](file:///Users/tikeshwar/tikeshwar-home/books/Sense%20and%20Solidarity.pdf))
-- [Arundhati Roy](https://tikeshwarsingh218-code.github.io/authors/arundhati-roy/): The Cost of Living ([View](file:///Users/tikeshwar/tikeshwar-home/books/The%20Cost%20of%20Living.pdf))
-- [Vandana Shiva](https://tikeshwarsingh218-code.github.io/authors/vandana-shiva/): The Violence of the Green Revolution: Third World Agriculture, Ecology and Politics ([View](file:///Users/tikeshwar/tikeshwar-home/books/The%20Violence%20of%20the%20Green%20Revolution-Third-World-Agriculture-Ecology-and-Politics%20by%20Vandana-Shiva.pdf))
-- [Rukmini S.](https://tikeshwarsingh218-code.github.io/authors/rukmini-s/): Whole Numbers and Half Truths: What Data Can and Cannot Tell Us About Modern India ([View](file:///Users/tikeshwar/tikeshwar-home/books/whole%20numbers%20and%20half%20truths%20what%20data%20can%20and%20cannot%20tell%20us%20about%20modern%20India.pdf))
+- [M. R. Sharan]({{ '/authors/m-r-sharan/' | relative_url }}): Last Among Equals: Power, Caste and Politics in Bihar’s Villages ([PDF]({{ '/books/Last%20Among%20Equals%20Power%2C%20Caste%20Politics%20in%20Bihar%E2%80%99s%20Villages%20%28M%20R%20Sharan%29%20%28z-library.sk%2C%201lib.sk%2C%20z-lib.sk%29.pdf' | relative_url }}))
+- [J. W. Mason]({{ '/authors/j-w-mason/' | relative_url }}) and [Arjun Jayadev]({{ '/authors/arjun-jayadev/' | relative_url }}): Against Money ([PDF]({{ '/books/Against%20Money.pdf' | relative_url }}))
+- [Milton Friedman]({{ '/authors/milton-friedman/' | relative_url }}): Capitalism and Freedom ([PDF]({{ '/books/Capitalism%20and%20Freedom.pdf' | relative_url }}))
+- [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): The End of Imagination ([PDF]({{ '/books/End%20of%20Imagination.pdf' | relative_url }}))
+- [George Orwell]({{ '/authors/george-orwell/' | relative_url }}): 1984 ([PDF]({{ '/books/George%20Orwell%201984.pdf' | relative_url }}))
+- [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): Mother Mary Comes to Me ([PDF]({{ '/books/Mother%20Mary%20Comes%20to%20Me.pdf' | relative_url }}))
+- [James C. Scott]({{ '/authors/james-c-scott/' | relative_url }}): Seeing Like a State ([PDF]({{ '/books/Scott%20James%20C%20Seeing%20Like%20A%20State%201998.pdf' | relative_url }}))
+- [Jean Drèze]({{ '/authors/jean-dreze/' | relative_url }}): Sense and Solidarity: Jholawala Economics for Everyone ([PDF]({{ '/books/Sense%20and%20Solidarity.pdf' | relative_url }}))
+- [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): The Cost of Living ([PDF]({{ '/books/The%20Cost%20of%20Living.pdf' | relative_url }}))
+- [Vandana Shiva]({{ '/authors/vandana-shiva/' | relative_url }}): The Violence of the Green Revolution: Third World Agriculture, Ecology and Politics ([PDF]({{ '/books/The%20Violence%20of%20the%20Green%20Revolution-Third-World-Agriculture-Ecology-and-Politics%20by%20Vandana-Shiva.pdf' | relative_url }}))
+- [Rukmini S.]({{ '/authors/rukmini-s/' | relative_url }}): Whole Numbers and Half Truths: What Data Can and Cannot Tell Us About Modern India ([PDF]({{ '/books/whole%20numbers%20and%20half%20truths%20what%20data%20can%20and%20cannot%20tell%20us%20about%20modern%20India.pdf' | relative_url }}))
 
 #### STEG and PEDL Virtual Courses
 
