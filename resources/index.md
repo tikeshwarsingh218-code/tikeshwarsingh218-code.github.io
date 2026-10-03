@@ -33,27 +33,27 @@ Selected graduate-level courses in development economics and related fields.
 
 #### Books
 
-• [M. R. Sharan]({{ '/authors/m-r-sharan/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Last%20Among%20Equals%20Power%2C%20Caste%20Politics%20in%20Bihar%E2%80%99s%20Villages%20%28M%20R%20Sharan%29%20%28z-library.sk%2C%201lib.sk%2C%20z-lib.sk%29.pdf) — Last Among Equals: Power, Caste and Politics in Bihar’s Villages
+- [M. R. Sharan]({{ '/authors/m-r-sharan/' | relative_url }}): Last Among Equals: Power, Caste and Politics in Bihar’s Villages ([View](file:///Users/tikeshwar/tikeshwar-home/books/Last%20Among%20Equals%20Power%2C%20Caste%20Politics%20in%20Bihar%E2%80%99s%20Villages%20%28M%20R%20Sharan%29%20%28z-library.sk%2C%201lib.sk%2C%20z-lib.sk%29.pdf))
 
-• [J. W. Mason]({{ '/authors/j-w-mason/' | relative_url }}) and [Arjun Jayadev]({{ '/authors/arjun-jayadev/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Against%20Money.pdf) — Against Money
+- [J. W. Mason]({{ '/authors/j-w-mason/' | relative_url }}) and [Arjun Jayadev]({{ '/authors/arjun-jayadev/' | relative_url }}): Against Money ([View](file:///Users/tikeshwar/tikeshwar-home/books/Against%20Money.pdf))
 
-• [Milton Friedman]({{ '/authors/milton-friedman/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Capitalism%20and%20Freedom.pdf) — Capitalism and Freedom
+- [Milton Friedman]({{ '/authors/milton-friedman/' | relative_url }}): Capitalism and Freedom ([View](file:///Users/tikeshwar/tikeshwar-home/books/Capitalism%20and%20Freedom.pdf))
 
-• [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/End%20of%20Imagination.pdf) — The End of Imagination
+- [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): The End of Imagination ([View](file:///Users/tikeshwar/tikeshwar-home/books/End%20of%20Imagination.pdf))
 
-• [George Orwell]({{ '/authors/george-orwell/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/George%20Orwell%201984.pdf) — 1984
+- [George Orwell]({{ '/authors/george-orwell/' | relative_url }}): 1984 ([View](file:///Users/tikeshwar/tikeshwar-home/books/George%20Orwell%201984.pdf))
 
-• [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Mother%20Mary%20Comes%20to%20Me.pdf) — Mother Mary Comes to Me
+- [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): Mother Mary Comes to Me ([View](file:///Users/tikeshwar/tikeshwar-home/books/Mother%20Mary%20Comes%20to%20Me.pdf))
 
-• [James C. Scott]({{ '/authors/james-c-scott/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Scott%20James%20C%20Seeing%20Like%20A%20State%201998.pdf) — Seeing Like a State
+- [James C. Scott]({{ '/authors/james-c-scott/' | relative_url }}): Seeing Like a State ([View](file:///Users/tikeshwar/tikeshwar-home/books/Scott%20James%20C%20Seeing%20Like%20A%20State%201998.pdf))
 
-• [Jean Drèze]({{ '/authors/jean-dreze/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/Sense%20and%20Solidarity.pdf) — Sense and Solidarity: Jholawala Economics for Everyone
+- [Jean Drèze]({{ '/authors/jean-dreze/' | relative_url }}): Sense and Solidarity: Jholawala Economics for Everyone ([View](file:///Users/tikeshwar/tikeshwar-home/books/Sense%20and%20Solidarity.pdf))
 
-• [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/The%20Cost%20of%20Living.pdf) — The Cost of Living
+- [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): The Cost of Living ([View](file:///Users/tikeshwar/tikeshwar-home/books/The%20Cost%20of%20Living.pdf))
 
-• [Vandana Shiva]({{ '/authors/vandana-shiva/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/The%20Violence%20of%20the%20Green%20Revolution-Third-World-Agriculture-Ecology-and-Politics%20by%20Vandana-Shiva.pdf) — The Violence of the Green Revolution: Third World Agriculture, Ecology and Politics
+- [Vandana Shiva]({{ '/authors/vandana-shiva/' | relative_url }}): The Violence of the Green Revolution: Third World Agriculture, Ecology and Politics ([View](file:///Users/tikeshwar/tikeshwar-home/books/The%20Violence%20of%20the%20Green%20Revolution-Third-World-Agriculture-Ecology-and-Politics%20by%20Vandana-Shiva.pdf))
 
-• [Rukmini S.]({{ '/authors/rukmini-s/' | relative_url }}): [View](file:///Users/tikeshwar/tikeshwar-home/books/whole%20numbers%20and%20half%20truths%20what%20data%20can%20and%20cannot%20tell%20us%20about%20modern%20India.pdf) — Whole Numbers and Half Truths: What Data Can and Cannot Tell Us About Modern India
+- [Rukmini S.]({{ '/authors/rukmini-s/' | relative_url }}): Whole Numbers and Half Truths: What Data Can and Cannot Tell Us About Modern India ([View](file:///Users/tikeshwar/tikeshwar-home/books/whole%20numbers%20and%20half%20truths%20what%20data%20can%20and%20cannot%20tell%20us%20about%20modern%20India.pdf))
 
 #### STEG and PEDL Virtual Courses
 
