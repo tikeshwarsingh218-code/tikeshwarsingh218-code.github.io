@@ -32,7 +32,7 @@ Selected graduate-level courses in development economics and related fields.
 
 
 #### Books
-- [M. R. Sharan]({{ '/authors/m-r-sharan/' | relative_url }}): Last Among Equals: Power, Caste and Politics in Bihar’s Villages ([PDF]({{ '/books/Last%20Among%20Equals%20Power%2C%20Caste%20Politics%20in%20Bihar%E2%80%99s%20Villages%20%28M%20R%20Sharan%29%20%28z-library.sk%2C%201lib.sk%2C%20z-lib.sk%29.pdf' | relative_url }}))
+- [M. R. Sharan]({{ '/authors/m-r-sharan/' | relative_url }}): Last Among Equals: Power, Caste and Politics in Bihar’s Villages ([PDF]({{ '/books/Last-Among-Equals.pdf' | relative_url }}))
 - [J. W. Mason]({{ '/authors/j-w-mason/' | relative_url }}) and [Arjun Jayadev]({{ '/authors/arjun-jayadev/' | relative_url }}): Against Money ([PDF]({{ '/books/Against%20Money.pdf' | relative_url }}))
 - [Milton Friedman]({{ '/authors/milton-friedman/' | relative_url }}): Capitalism and Freedom ([PDF]({{ '/books/Capitalism%20and%20Freedom.pdf' | relative_url }}))
 - [Arundhati Roy]({{ '/authors/arundhati-roy/' | relative_url }}): The End of Imagination ([PDF]({{ '/books/End%20of%20Imagination.pdf' | relative_url }}))
