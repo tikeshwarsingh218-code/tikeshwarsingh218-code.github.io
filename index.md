@@ -84,3 +84,76 @@ title: Home
   </div>
 
 </section>
+
+<!-- Live India time and Manali weather -->
+<section id="manali-live-widget" aria-label="India time and Manali weather">
+  <div class="live-clock-block">
+    
+    <time id="manali-clock">--:--:--</time>
+    <span id="manali-date"></span>
+  </div>
+  <div class="live-weather-block">
+    <span class="live-widget-label">MANALI, HIMACHAL PRADESH</span>
+    <div class="live-weather-main">
+      <span id="manali-temperature">--°C</span>
+      <span id="manali-weather-description" aria-label="Current weather" title="Current weather">☁</span>
+    </div>
+    <span id="manali-weather-details">Fetching latest conditions</span>
+  </div>
+</section>
+
+<script>
+(() => {
+  const clock = document.getElementById("manali-clock");
+  const date = document.getElementById("manali-date");
+  const temperature = document.getElementById("manali-temperature");
+  const description = document.getElementById("manali-weather-description");
+  const details = document.getElementById("manali-weather-details");
+
+  function updateClock() {
+    const now = new Date();
+    clock.textContent = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Kolkata",
+      hour: "2-digit", minute: "2-digit", second: "2-digit",
+      hour12: true
+    }).format(now);
+    date.textContent = " · " + new Intl.DateTimeFormat("en-IN", {
+      timeZone: "Asia/Kolkata",
+      weekday: "short", day: "numeric", month: "short", year: "numeric"
+    }).format(now);
+  }
+
+  const weatherIcons = {
+    0: "☀", 1: "🌤", 2: "☁", 3: "☁", 45: "🌫", 48: "🌫",
+    51: "🌦", 53: "🌦", 55: "🌧", 61: "🌧", 63: "🌧", 65: "🌧",
+    71: "🌨", 73: "🌨", 75: "❄", 80: "🌦", 81: "🌧", 82: "🌧",
+    85: "🌨", 86: "❄", 95: "⛈", 96: "⛈", 99: "⛈"
+  };
+
+  async function updateWeather() {
+    try {
+      const url = "https://api.open-meteo.com/v1/forecast?latitude=32.2396&longitude=77.1887&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Asia%2FKolkata";
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Weather service unavailable");
+      const data = await response.json();
+      const current = data.current;
+
+      temperature.textContent = Math.round(current.temperature_2m) + "°C";
+      description.textContent = weatherIcons[current.weather_code] || "☁";
+      details.textContent =
+        "Feels like " + Math.round(current.apparent_temperature) + "°C" +
+        " · Humidity " + current.relative_humidity_2m + "%" +
+        " · Wind " + Math.round(current.wind_speed_10m) + " km/h" +
+        ";
+    } catch (error) {
+      description.textContent = "☁";
+      details.textContent = "Please try again shortly.";
+    }
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+  updateWeather();
+  setInterval(updateWeather, 10 * 60 * 1000);
+})();
+</script>

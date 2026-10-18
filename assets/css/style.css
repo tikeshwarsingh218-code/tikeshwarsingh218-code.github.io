@@ -693,3 +693,38 @@ body.dark-mode #manali-weather-details {
   #manali-clock { font-size: 29px; }
 }
 
+
+/* CLOCK AND WEATHER BELOW HOMEPAGE UPDATES */
+#manali-live-widget {
+  max-width: 1110px;
+  margin: 18px auto 30px;
+  padding: 16px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  border-bottom: 0;
+  text-align: right;
+}
+#manali-live-widget .live-clock-block,
+#manali-live-widget .live-weather-block {
+  align-items: flex-end;
+}
+#manali-live-widget .live-widget-label { display: none; }
+#manali-clock { font-size: 18px; }
+#manali-date { display: inline; font-size: 13px; }
+#manali-live-widget .live-weather-main {
+  justify-content: flex-end;
+  gap: 9px;
+}
+#manali-weather-description { font-size: 22px; }
+#manali-temperature { font-size: 22px; }
+@media (max-width: 600px) {
+  #manali-live-widget {
+    margin: 16px 20px 24px;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  #manali-clock { font-size: 16px; }
+}
+
