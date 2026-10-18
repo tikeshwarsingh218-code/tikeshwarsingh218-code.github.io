@@ -28,6 +28,29 @@ title: Home
       <a href="mailto:tikeshwarsingh218@gmail.com">tikeshwarsingh218@gmail.com</a>
     </p>
 
+    <div style="display: flex; align-items: center; gap: 20px; margin-top: 16px;">
+      <a href="https://github.com/tikeshwarsingh218-code"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="GitHub" title="GitHub">
+        <img src="https://cdn.simpleicons.org/github"
+             alt="GitHub" width="26" height="26">
+      </a>
+
+      <a href="https://www.linkedin.com/in/tikeshwar-singh-847a592b5/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="LinkedIn" title="LinkedIn">
+        <img src="https://cdn.simpleicons.org/linkedin"
+             alt="LinkedIn" width="26" height="26">
+      </a>
+
+      <a href="https://x.com/tikeshwar_"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="X" title="X">
+        <img src="https://cdn.simpleicons.org/x"
+             alt="X" width="26" height="26">
+      </a>
+    </div>
+
   </div>
 
   <div class="about-photo">
@@ -42,14 +65,14 @@ title: Home
 
   <div class="updates-list">
 
-<ul>
-  <li><a href="https://tikeshwarsingh218-code.github.io/research/uncontrolled-tourism/">Uncontrolled tourism leads to the loss of intellectual property.</a> (2026) I am grateful to <a href="https://ankurjamwal.github.io/">Ankur Jamwal</a> for his extensive help with this work.</li>
-  <li><a href="https://tikeshwarsingh218-code.github.io/research/labour-codes/">What India’s Labour Codes (2019–2020) Mean for the Worker.</a> (2026)</li>
-  <li><a href="https://www.theigc.org/events/bread-igc-virtual-phd-courses/bread-igc-virtual-phd-level-course-political-economy-2026">BREAD IGC virtual PhD level course on political economy</a> (2026)</li>
-  <li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=_oivH5ipW0yTySEKEdmlwrXGAGzNbhpGqdoMSpWvq1xUNlQ1TkhRRTFEOTBaVkNXRUEwWFNVSVVFWi4u">Research talk and workshop with Harini Nagendra at UCL STEaPP</a> (2026)</li>
-  <li><a href="https://ishet.in/ishet-2026-2/">ISHET 2026: Third Annual Conference of the Indian Society for the History of Economic Thought</a> (2026)</li>
-  <li><a href="https://aea.am/2026-young-scholar-workshop/">2026 Young Scholar Workshop, Armenian Economic Association</a> (2026)</li>
-</ul>
+    <ul>
+      <li><a href="https://tikeshwarsingh218-code.github.io/research/uncontrolled-tourism/">Uncontrolled tourism leads to the loss of intellectual property.</a> (2026) I am grateful to <a href="https://ankurjamwal.github.io/">Ankur Jamwal</a> for his extensive help with this work.</li>
+      <li><a href="https://tikeshwarsingh218-code.github.io/research/labour-codes/">What India’s Labour Codes (2019–2020) Mean for the Worker.</a> (2026)</li>
+      <li><a href="https://www.theigc.org/events/bread-igc-virtual-phd-courses/bread-igc-virtual-phd-level-course-political-economy-2026">BREAD IGC virtual PhD level course on political economy</a> (2026)</li>
+      <li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=_oivH5ipW0yTySEKEdmlwrXGAGzNbhpGqdoMSpWvq1xUNlQ1TkhRRTFEOTBaVkNXRUEwWFNVSVVFWi4u">Research talk and workshop with Harini Nagendra at UCL STEaPP</a> (2026)</li>
+      <li><a href="https://ishet.in/ishet-2026-2/">ISHET 2026: Third Annual Conference of the Indian Society for the History of Economic Thought</a> (2026)</li>
+      <li><a href="https://aea.am/2026-young-scholar-workshop/">2026 Young Scholar Workshop, Armenian Economic Association</a> (2026)</li>
+    </ul>
 
   </div>
 
