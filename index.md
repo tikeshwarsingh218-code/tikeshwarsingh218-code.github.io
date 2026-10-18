@@ -28,28 +28,35 @@ title: Home
       <a href="mailto:tikeshwarsingh218@gmail.com">tikeshwarsingh218@gmail.com</a>
     </p>
 
-    <div style="display: flex; align-items: center; gap: 20px; margin-top: 16px;">
-      <a href="https://github.com/tikeshwarsingh218-code"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="GitHub" title="GitHub">
-        <img src="https://cdn.simpleicons.org/github"
-             alt="GitHub" width="26" height="26">
-      </a>
+    
+<div style="display: flex; align-items: center; gap: 20px; margin-top: 16px;">
+  <a href="https://github.com/tikeshwarsingh218-code"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="GitHub" title="GitHub"
+     style="display: inline-flex; color: inherit;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.75-1.32-3.75-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.8 2.18 3.2 1.66.1-.72.4-1.21.7-1.49-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.27-2.61 5.21-5.1 5.49.4.35.75 1.03.75 2.08V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/>
+    </svg>
+  </a>
 
-      <a href="https://www.linkedin.com/in/tikeshwar-singh-847a592b5/"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="LinkedIn" title="LinkedIn">
-        <img src="https://cdn.simpleicons.org/linkedin"
-             alt="LinkedIn" width="26" height="26">
-      </a>
+  <a href="https://www.linkedin.com/in/tikeshwar-singh-847a592b5/"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="LinkedIn" title="LinkedIn"
+     style="display: inline-flex; color: inherit;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.46H4.96V9h2.97v9.46ZM6.45 7.71a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm12.01 10.75h-2.97v-4.6c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.78 1.2-1.78 2.44v4.68H9.2V9h2.85v1.29h.04c.4-.74 1.37-1.53 2.82-1.53 3.01 0 3.56 1.98 3.56 4.55v5.15Z"/>
+    </svg>
+  </a>
 
-      <a href="https://x.com/tikeshwar_"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="X" title="X">
-        <img src="https://cdn.simpleicons.org/x"
-             alt="X" width="26" height="26">
-      </a>
-    </div>
+  <a href="https://x.com/tikeshwar_"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="X" title="X"
+     style="display: inline-flex; color: inherit;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.9 2H22l-6.78 7.75L23.2 22h-6.25l-4.9-7.44L5.54 22H2.4l7.25-8.29L1.8 2h6.4l4.43 6.77L18.9 2Zm-1.1 18h1.73L7.27 3.88H5.41L17.8 20Z"/>
+    </svg>
+  </a>
+</div>
 
   </div>
 
