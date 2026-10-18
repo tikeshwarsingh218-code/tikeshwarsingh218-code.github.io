@@ -728,3 +728,78 @@ body.dark-mode #manali-weather-details {
   #manali-clock { font-size: 16px; }
 }
 
+
+
+/* SINGLE VISITOR LOCAL WEATHER WIDGET */
+#manali-live-widget {
+  max-width: 1110px;
+  margin: 28px auto 0;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  border-top: 1px solid #e8e8e8;
+  color: #252525;
+  font-family: inherit;
+}
+#manali-live-widget .live-clock-block,
+#manali-live-widget .live-weather-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+#manali-live-widget .live-clock-line,
+#manali-live-widget .live-weather-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#manali-live-widget .live-clock-icon {
+  font-size: 23px;
+  color: #777;
+}
+#manali-clock {
+  font-size: 20px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+#manali-date,
+#manali-weather-details {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #777;
+}
+#manali-live-widget .live-widget-label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #777;
+}
+#manali-weather-icon,
+#manali-temperature {
+  font-size: 23px;
+}
+#manali-temperature {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+body.dark-mode #manali-live-widget {
+  color: #f5f5f5;
+  border-top-color: #333;
+}
+body.dark-mode #manali-live-widget .live-widget-label,
+body.dark-mode #manali-date,
+body.dark-mode #manali-weather-details,
+body.dark-mode #manali-live-widget .live-clock-icon {
+  color: #aaa;
+}
+@media (max-width: 600px) {
+  #manali-live-widget {
+    margin: 22px 20px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}

@@ -63,7 +63,161 @@
     {{ content }}
   </main>
 
-  <footer class="site-footer">
+  
+<!-- Single visitor-local time and weather widget -->
+<section id="manali-live-widget" aria-label="Local time and weather">
+  <div class="live-clock-block">
+    <div class="live-clock-line">
+      <span class="live-clock-icon" aria-hidden="true">◷</span>
+      <time id="manali-clock">Getting local time…</time>
+    </div>
+    <span id="manali-date"></span>
+  </div>
+
+  <div class="live-weather-block">
+    <span id="manali-location-label" class="live-widget-label">DETECTING YOUR LOCATION</span>
+    <div class="live-weather-main">
+      <span id="manali-weather-icon" aria-hidden="true">☁</span>
+      <span id="manali-temperature">--°C</span>
+    </div>
+    <span id="manali-weather-details">Allow location access for local weather.</span>
+  </div>
+</section>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const clock = $("manali-clock");
+  const date = $("manali-date");
+  const place = $("manali-location-label");
+  const temp = $("manali-temperature");
+  const icon = $("manali-weather-icon");
+  const details = $("manali-weather-details");
+
+  if (!clock || !date || !place || !temp || !icon || !details) return;
+
+  let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+  let coords = null;
+  let lastWeatherUpdate = 0;
+
+  function updateClock() {
+    const now = new Date();
+    clock.textContent = new Intl.DateTimeFormat(undefined, {
+      timeZone,
+      hour: "2-digit", minute: "2-digit", second: "2-digit",
+      hour12: true
+    }).format(now);
+
+    date.textContent = new Intl.DateTimeFormat(undefined, {
+      timeZone,
+      weekday: "short", day: "numeric", month: "short", year: "numeric"
+    }).format(now);
+  }
+
+  function weatherSymbol(code) {
+    if (code === 0) return "☀";
+    if (code === 1) return "🌤";
+    if (code === 2 || code === 3) return "☁";
+    if (code === 45 || code === 48) return "🌫";
+    if (code >= 51 && code <= 67) return "🌧";
+    if (code >= 71 && code <= 77) return "❄";
+    if (code >= 80 && code <= 82) return "🌦";
+    if (code >= 85 && code <= 86) return "🌨";
+    if (code >= 95) return "⛈";
+    return "☁";
+  }
+
+  async function getPlaceName(lat, lon) {
+    try {
+      const url = "https://api.bigdatacloud.net/data/reverse-geocode-client" +
+        "?latitude=" + encodeURIComponent(lat) +
+        "&longitude=" + encodeURIComponent(lon) +
+        "&localityLanguage=en";
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Place lookup failed");
+
+      const p = await response.json();
+      const locality = p.locality || p.city || p.localityInfo?.administrative?.[3]?.name;
+      const region = p.principalSubdivision;
+      const country = p.countryName;
+
+      return [locality, region, country]
+        .filter((value, index, arr) => value && arr.indexOf(value) === index)
+        .join(", ") || "Your current location";
+    } catch {
+      return "Your current location";
+    }
+  }
+
+  async function refreshWeather() {
+    if (!coords) return;
+
+    try {
+      const url = "https://api.open-meteo.com/v1/forecast" +
+        "?latitude=" + encodeURIComponent(coords.latitude) +
+        "&longitude=" + encodeURIComponent(coords.longitude) +
+        "&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m" +
+        "&timezone=auto";
+
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Weather request failed");
+      const data = await response.json();
+      const c = data.current;
+      if (!c) throw new Error("No current weather data");
+
+      timeZone = data.timezone || timeZone;
+      temp.textContent = Math.round(c.temperature_2m) + "°C";
+      icon.textContent = weatherSymbol(c.weather_code);
+      details.textContent =
+        "Feels like " + Math.round(c.apparent_temperature) + "°C" +
+        " · Humidity " + c.relative_humidity_2m + "%" +
+        " · Wind " + Math.round(c.wind_speed_10m) + " km/h";
+
+      lastWeatherUpdate = Date.now();
+      updateClock();
+    } catch {
+      details.textContent = "Live weather temporarily unavailable.";
+    }
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  if (!navigator.geolocation || !window.isSecureContext) {
+    place.textContent = "LOCATION ACCESS UNAVAILABLE";
+    details.textContent = "Open this website over HTTPS and allow location access.";
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(async position => {
+    coords = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+    };
+
+    place.textContent = await getPlaceName(coords.latitude, coords.longitude);
+    await refreshWeather();
+
+    // Refresh weather every 10 minutes while retaining the visitor's location.
+    setInterval(() => {
+      if (coords && Date.now() - lastWeatherUpdate >= 9 * 60 * 1000) {
+        refreshWeather();
+      }
+    }, 60 * 1000);
+  }, () => {
+    place.textContent = "LOCATION PERMISSION NEEDED";
+    temp.textContent = "—°C";
+    icon.textContent = "☁";
+    details.textContent = "Allow location access in your browser to show your local weather.";
+  }, {
+    enableHighAccuracy: false,
+    timeout: 15000,
+    maximumAge: 60000
+  });
+})();
+</script>
+
+<footer class="site-footer">
     <p>© {{ 'now' | date: "%Y" }} Tikeshwar Singh</p>
   </footer>
 
