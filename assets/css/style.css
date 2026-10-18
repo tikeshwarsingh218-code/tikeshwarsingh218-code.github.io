@@ -354,3 +354,76 @@ body.dark-mode #theme-toggle:hover {
 body.dark-mode img {
   background: transparent;
 }
+
+/* Improved theme toggle and high-contrast themes */
+#theme-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px;
+  margin-left: 4px;
+  padding: 0 !important;
+  border: 1px solid #999 !important;
+  border-radius: 50%;
+  background: #fff !important;
+  color: #111 !important;
+  font-size: 30px !important;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#theme-toggle:hover {
+  background: #eee !important;
+}
+
+body.dark-mode,
+body.dark-mode html {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .site-header,
+body.dark-mode .main-content,
+body.dark-mode .site-footer {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode strong,
+body.dark-mode .site-name a,
+body.dark-mode .navigation a,
+body.dark-mode .main-content a,
+body.dark-mode .site-footer {
+  color: #fff !important;
+}
+
+body.dark-mode .site-header,
+body.dark-mode .site-footer,
+body.dark-mode .updates-section {
+  border-color: #444 !important;
+}
+
+body.dark-mode #theme-toggle {
+  background: #222 !important;
+  color: #fff !important;
+  border-color: #777 !important;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background: #444 !important;
+}
+
+@media (max-width: 800px) {
+  #theme-toggle {
+    margin-top: 8px;
+  }
+}
