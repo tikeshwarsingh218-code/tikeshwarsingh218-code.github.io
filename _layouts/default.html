@@ -65,24 +65,30 @@
 
   
 <!-- Single visitor-local time and weather widget -->
-<section id="manali-live-widget" aria-label="Local time and weather">
-  <div class="live-clock-block">
-    <div class="live-clock-line">
-      <span class="live-clock-icon" aria-hidden="true">◷</span>
-      <time id="manali-clock">Getting local time…</time>
+
+
+<footer class="site-footer">
+    <p>© {{ 'now' | date: "%Y" }} Tikeshwar Singh</p>
+  
+<!-- Footer time and local weather -->
+<div id="manali-live-widget" aria-label="Local time and weather">
+  <div class="footer-clock">
+    <div class="footer-clock-time">
+      <span aria-hidden="true">◷</span>
+      <time id="manali-clock">Loading time…</time>
     </div>
     <span id="manali-date"></span>
   </div>
-
-  <div class="live-weather-block">
-    <span id="manali-location-label" class="live-widget-label">DETECTING YOUR LOCATION</span>
-    <div class="live-weather-main">
+  <div class="footer-weather">
+    <span id="manali-location-label">Finding your location…</span>
+    <div class="footer-weather-line">
       <span id="manali-weather-icon" aria-hidden="true">☁</span>
-      <span id="manali-temperature">--°C</span>
+      <strong id="manali-temperature">--°C</strong>
     </div>
-    <span id="manali-weather-details">Allow location access for local weather.</span>
+    <span id="manali-weather-details">Loading local weather…</span>
+    <span id="manali-coordinates"></span>
   </div>
-</section>
+</div>
 
 <script>
 (() => {
@@ -93,28 +99,26 @@
   const temp = $("manali-temperature");
   const icon = $("manali-weather-icon");
   const details = $("manali-weather-details");
+  const coordsText = $("manali-coordinates");
 
-  if (!clock || !date || !place || !temp || !icon || !details) return;
+  if (!clock || !date || !place || !temp || !icon || !details || !coordsText) return;
 
   let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
   let coords = null;
-  let lastWeatherUpdate = 0;
 
   function updateClock() {
     const now = new Date();
     clock.textContent = new Intl.DateTimeFormat(undefined, {
-      timeZone,
-      hour: "2-digit", minute: "2-digit", second: "2-digit",
-      hour12: true
+      timeZone, hour: "2-digit", minute: "2-digit",
+      second: "2-digit", hour12: true
     }).format(now);
-
     date.textContent = new Intl.DateTimeFormat(undefined, {
-      timeZone,
-      weekday: "short", day: "numeric", month: "short", year: "numeric"
+      timeZone, weekday: "short", day: "numeric",
+      month: "short", year: "numeric"
     }).format(now);
   }
 
-  function weatherSymbol(code) {
+  function weatherIcon(code) {
     if (code === 0) return "☀";
     if (code === 1) return "🌤";
     if (code === 2 || code === 3) return "☁";
@@ -127,99 +131,100 @@
     return "☁";
   }
 
-  async function getPlaceName(lat, lon) {
+  async function requestJSON(url) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 9000);
     try {
-      const url = "https://api.bigdatacloud.net/data/reverse-geocode-client" +
-        "?latitude=" + encodeURIComponent(lat) +
-        "&longitude=" + encodeURIComponent(lon) +
-        "&localityLanguage=en";
-      const response = await fetch(url);
-      if (!response.ok) throw new Error("Place lookup failed");
-
-      const p = await response.json();
-      const locality = p.locality || p.city || p.localityInfo?.administrative?.[3]?.name;
-      const region = p.principalSubdivision;
-      const country = p.countryName;
-
-      return [locality, region, country]
-        .filter((value, index, arr) => value && arr.indexOf(value) === index)
-        .join(", ") || "Your current location";
-    } catch {
-      return "Your current location";
+      const response = await fetch(url, { signal: controller.signal });
+      if (!response.ok) throw new Error("Request failed");
+      return await response.json();
+    } finally {
+      clearTimeout(timeout);
     }
+  }
+
+  async function loadAt(lat, lon, fallbackName, fallbackZone) {
+    coords = { lat, lon };
+    coordsText.textContent = "Coordinates: " + lat.toFixed(4) + ", " + lon.toFixed(4);
+    place.textContent = fallbackName || "Your location";
+
+    try {
+      const geo = await requestJSON(
+        "https://api.bigdatacloud.net/data/reverse-geocode-client" +
+        "?latitude=" + lat + "&longitude=" + lon + "&localityLanguage=en"
+      );
+      const locality = geo.locality || geo.city || geo.principalSubdivision;
+      place.textContent = [
+        locality, geo.principalSubdivision, geo.countryName
+      ].filter((v, i, a) => v && a.indexOf(v) === i).join(", ") || fallbackName || "Your location";
+      timeZone = geo.timezone?.name || fallbackZone || timeZone;
+    } catch {
+      timeZone = fallbackZone || timeZone;
+    }
+
+    updateClock();
+    await refreshWeather();
   }
 
   async function refreshWeather() {
     if (!coords) return;
-
     try {
-      const url = "https://api.open-meteo.com/v1/forecast" +
-        "?latitude=" + encodeURIComponent(coords.latitude) +
-        "&longitude=" + encodeURIComponent(coords.longitude) +
-        "&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m" +
-        "&timezone=auto";
-
-      const response = await fetch(url);
-      if (!response.ok) throw new Error("Weather request failed");
-      const data = await response.json();
+      const data = await requestJSON(
+        "https://api.open-meteo.com/v1/forecast" +
+        "?latitude=" + coords.lat + "&longitude=" + coords.lon +
+        "&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto"
+      );
       const c = data.current;
-      if (!c) throw new Error("No current weather data");
-
-      timeZone = data.timezone || timeZone;
+      if (!c) throw new Error("No current weather");
       temp.textContent = Math.round(c.temperature_2m) + "°C";
-      icon.textContent = weatherSymbol(c.weather_code);
+      icon.textContent = weatherIcon(c.weather_code);
       details.textContent =
         "Feels like " + Math.round(c.apparent_temperature) + "°C" +
         " · Humidity " + c.relative_humidity_2m + "%" +
         " · Wind " + Math.round(c.wind_speed_10m) + " km/h";
-
-      lastWeatherUpdate = Date.now();
+      timeZone = data.timezone || timeZone;
       updateClock();
     } catch {
-      details.textContent = "Live weather temporarily unavailable.";
+      details.textContent = "Weather temporarily unavailable";
     }
+  }
+
+  function useNetworkFallback() {
+    requestJSON("https://ipapi.co/json/")
+      .then(data => {
+        if (typeof data.latitude !== "number" || typeof data.longitude !== "number") {
+          throw new Error("Network location unavailable");
+        }
+        loadAt(
+          data.latitude, data.longitude,
+          [data.city, data.region, data.country_name].filter(Boolean).join(", "),
+          data.timezone
+        );
+      })
+      .catch(() => {
+        place.textContent = "Location unavailable";
+        details.textContent = "Allow browser location access to show local weather.";
+        coordsText.textContent = "";
+      });
   }
 
   updateClock();
   setInterval(updateClock, 1000);
+  setInterval(refreshWeather, 10 * 60 * 1000);
 
-  if (!navigator.geolocation || !window.isSecureContext) {
-    place.textContent = "LOCATION ACCESS UNAVAILABLE";
-    details.textContent = "Open this website over HTTPS and allow location access.";
-    return;
+  if (navigator.geolocation && window.isSecureContext) {
+    navigator.geolocation.getCurrentPosition(
+      p => loadAt(p.coords.latitude, p.coords.longitude, "", ""),
+      useNetworkFallback,
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  } else {
+    useNetworkFallback();
   }
-
-  navigator.geolocation.getCurrentPosition(async position => {
-    coords = {
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude
-    };
-
-    place.textContent = await getPlaceName(coords.latitude, coords.longitude);
-    await refreshWeather();
-
-    // Refresh weather every 10 minutes while retaining the visitor's location.
-    setInterval(() => {
-      if (coords && Date.now() - lastWeatherUpdate >= 9 * 60 * 1000) {
-        refreshWeather();
-      }
-    }, 60 * 1000);
-  }, () => {
-    place.textContent = "LOCATION PERMISSION NEEDED";
-    temp.textContent = "—°C";
-    icon.textContent = "☁";
-    details.textContent = "Allow location access in your browser to show your local weather.";
-  }, {
-    enableHighAccuracy: false,
-    timeout: 15000,
-    maximumAge: 60000
-  });
 })();
 </script>
 
-<footer class="site-footer">
-    <p>© {{ 'now' | date: "%Y" }} Tikeshwar Singh</p>
-  </footer>
+</footer>
 
   <script id="theme-toggle-script">
     (function () {
