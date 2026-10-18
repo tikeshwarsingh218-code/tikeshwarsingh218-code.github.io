@@ -501,3 +501,121 @@ body.dark-mode #theme-toggle {
 body.dark-mode #theme-toggle:hover {
   background: #444 !important;
 }
+
+
+/* WEBSITE SEARCH */
+#site-search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#site-search-toggle:hover {
+  opacity: 0.65;
+}
+
+#site-search-panel[hidden] {
+  display: none !important;
+}
+
+#site-search-panel {
+  position: absolute;
+  z-index: 100;
+  top: calc(100% + 10px);
+  right: 45px;
+  width: min(440px, calc(100vw - 40px));
+  max-height: 70vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fff;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+#site-search-panel label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+#site-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  font: inherit;
+}
+
+#site-search-status {
+  margin: 12px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+#site-search-results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#site-search-results li {
+  padding: 12px 0;
+  border-top: 1px solid #eee;
+}
+
+#site-search-results a {
+  font-weight: 600;
+}
+
+#site-search-results p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666;
+}
+
+body.dark-mode #site-search-panel {
+  background: #171717;
+  color: #f5f5f5;
+  border-color: #444;
+}
+
+body.dark-mode #site-search-input {
+  background: #222;
+  color: #fff;
+  border-color: #666;
+}
+
+body.dark-mode #site-search-status,
+body.dark-mode #site-search-results p {
+  color: #bbb;
+}
+
+body.dark-mode #site-search-results li {
+  border-color: #444;
+}
+
+@media (max-width: 800px) {
+  #site-search-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 10px;
+    right: 10px;
+    width: auto;
+  }
+}
