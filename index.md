@@ -75,8 +75,8 @@ title: Home
     <ul>
       <li><a href="https://tikeshwarsingh218-code.github.io/research/uncontrolled-tourism/">Uncontrolled tourism leads to the loss of intellectual property.</a> (2026) I am grateful to <a href="https://ankurjamwal.github.io/">Ankur Jamwal</a> for his extensive help with this work.</li>
       <li><a href="https://tikeshwarsingh218-code.github.io/research/labour-codes/">What India’s Labour Codes (2019–2020) Mean for the Worker.</a> (2026)</li>
-      <li><a href="https://www.youtube.com/live/uG6v6Ra1BIY" target="_blank" rel="noopener noreferrer">US Economics PhD Admissions Panel</a> — Webinar by the <a href="https://www.youtube.com/@idea-devecon" target="_blank" rel="noopener noreferrer">International Development Economics Association</a> (2026)</li>
-      <li><a href="https://www.youtube.com/watch?v=ppX-XM8fiyI&t=759s" target="_blank" rel="noopener noreferrer">Role of Young Economists: Dr Aaditya Dar at SRRF 2021</a> (2021)</li>
+      <li><a href="https://www.youtube.com/live/uG6v6Ra1BIY" target="_blank" rel="noopener noreferrer">US Economics PhD Admissions: Panel</a> Webinar by the <a href="https://www.youtube.com/@idea-devecon" target="_blank" rel="noopener noreferrer">International Development Economics Association</a> (2026)</li>
+      <li><a href="https://www.youtube.com/watch?v=ppX-XM8fiyI&t=759s" target="_blank" rel="noopener noreferrer">Role of Young Economists: Dr Aaditya Dar at SRRF </a> (2021)</li>
       <li><a href="https://www.theigc.org/events/bread-igc-virtual-phd-courses/bread-igc-virtual-phd-level-course-political-economy-2026">BREAD IGC virtual PhD level course on political economy</a> (2026)</li>
       <li><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=_oivH5ipW0yTySEKEdmlwrXGAGzNbhpGqdoMSpWvq1xUNlQ1TkhRRTFEOTBaVkNXRUEwWFNVSVVFWi4u">Research talk and workshop with Harini Nagendra at UCL STEaPP</a> (2026)</li>
       <li><a href="https://ishet.in/ishet-2026-2/">ISHET 2026: Third Annual Conference of the Indian Society for the History of Economic Thought</a> (2026)</li>
