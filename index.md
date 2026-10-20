@@ -1,9 +1,3 @@
-
----
-layout: default
-title: Home
----
-
 <section class="about-section">
 
   <div class="about-text">
