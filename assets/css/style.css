@@ -1,39 +1,60 @@
+
+/* =========================================
+   GLOBAL
+   ========================================= */
+
 html {
   font-size: 16px;
+  min-height: 100%;
 }
 
 body {
   margin: 0;
-  background: #ffffff;
-  color: #333333;
+  background: #fff;
+  color: #333;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Helvetica, Arial, sans-serif;
+    Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 
-/* =========================
+/* =========================================
    HEADER
-   ========================= */
+   Align site name with main content
+   ========================================= */
 
 .site-header {
+  position: relative;
+  width: 100%;
   max-width: 1200px;
-  margin: 55px auto 0 auto;
-  padding: 0 45px 15px 45px;
-  border-bottom: 1px solid #eeeeee;
-
+  margin: 55px auto 0;
+  padding: 0 45px 15px;
+  border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 24px;
 }
 
-.site-name {
-  margin: 0;
+.site-header .site-name {
+  flex: 0 1 auto;
+  margin: 0 auto 0 0;
+  text-align: left;
 }
 
 .site-name a {
-  color: #333333;
+  color: #333;
   text-decoration: none;
   font-size: 25px;
   font-weight: 600;
@@ -41,78 +62,95 @@ body {
 }
 
 .site-name a:hover {
-  color: #333333;
+  color: #333;
   text-decoration: none;
 }
 
 .site-subtitle {
-  color: #555555;
-  font-size: 16px;
   margin-top: 4px;
+  color: #555;
+  font-size: 16px;
 }
 
 
-/* =========================
+/* =========================================
    NAVIGATION
-   ========================= */
+   ========================================= */
 
 .navigation {
   display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
   gap: 22px;
   padding-top: 4px;
 }
 
 .navigation a {
-  color: #333333;
-  text-decoration: none;
+  color: #333;
   font-size: 16px;
+  text-decoration: none;
 }
 
 .navigation a:hover {
-  color: #333333;
+  color: #333;
   text-decoration: underline;
 }
 
+.navigation a[href$="/ra/"] {
+  text-decoration: none;
+}
 
-/* =========================
+
+/* =========================================
    MAIN CONTENT
-   ========================= */
+   ========================================= */
 
 .main-content {
+  width: 100%;
   max-width: 1200px;
-  margin: 55px auto 70px auto;
+  margin: 55px auto 70px;
   padding: 0 45px;
+  flex: 1 0 auto;
 }
 
 .main-content h3 {
+  margin: 0 0 12px;
   font-size: 28px;
   line-height: 1.25;
   font-weight: 600;
-  margin: 0 0 12px 0;
 }
 
 .main-content p {
-  margin: 0 0 24px 0;
+  margin: 0 0 24px;
 }
 
 .main-content a {
-  color: #555555;
+  color: #555;
   text-decoration: underline;
 }
 
 .main-content a:hover {
-  color: #222222;
+  color: #222;
   text-decoration: underline;
 }
 
+/* RA and Blog pages: links without underlines */
+.ra-page a,
+.ra-page a:hover,
+.blog-page a,
+.blog-page a:hover {
+  text-decoration: none !important;
+}
 
-/* =========================
+
+/* =========================================
    ABOUT SECTION
-   ========================= */
+   ========================================= */
 
 .about-section {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   column-gap: 75px;
   align-items: start;
 }
@@ -141,14 +179,14 @@ body {
 }
 
 
-/* =========================
+/* =========================================
    UPDATES
-   ========================= */
+   ========================================= */
 
 .updates-section {
   margin-top: 5px;
   padding-top: 20px;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #eee;
 }
 
 .updates-section h3 {
@@ -160,68 +198,13 @@ body {
 }
 
 
-/* =========================
-   FOOTER
-   ========================= */
-
-.site-footer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 35px 45px 45px 45px;
-  border-top: 1px solid #eeeeee;
-  color: #777777;
-  font-size: 14px;
-  text-align: center;
-}
-
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 800px) {
-
-  .site-header {
-    margin-top: 30px;
-    padding: 0 25px 15px 25px;
-    display: block;
-  }
-
-  .navigation {
-    margin-top: 18px;
-    gap: 17px;
-    flex-wrap: wrap;
-  }
-
-  .main-content {
-    margin-top: 5px;
-    padding: 0 25px;
-  }
-
-  .about-section {
-    grid-template-columns: 1fr;
-    row-gap: 30px;
-  }
-
-  .about-photo img {
-    max-width: 500px;
-  }
-
-  .updates-section {
-    margin-top: 45px;
-  }
-
-  .site-footer {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-}
-
-/* Field Notes */
+/* =========================================
+   FIELD NOTES
+   ========================================= */
 
 .field-notes p {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .field-notes h3 {
@@ -238,139 +221,166 @@ body {
   margin-top: 0;
 }
 
-/* Field Notes paragraph spacing */
 
-.field-notes p {
-  margin-top: 0;
-  margin-bottom: 0;
+/* =========================================
+   FOOTER
+   Copyright left, widget right
+   ========================================= */
+
+.site-footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto auto 0;
+  padding: 24px 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  border-top: 1px solid #eee;
+  color: #777;
+  font-size: 14px;
+  text-align: left;
 }
 
-/* Remove vertical spacing between paragraphs in Field Notes */
-.field-notes p {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Remove vertical spacing between paragraphs in Field Notes */
-.field-notes p {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.main-content a {
-  color: #555555;
-  text-decoration: underline;
-}
-
-.main-content a:hover {
-  color: #222222;
-  text-decoration: underline;
-}
-
-.navigation a[href$="/ra/"] {
-  text-decoration: none;
+.site-footer > p {
+  flex: 0 0 auto;
+  margin: 0 auto 0 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
 }
 
 
-.main-content a {
-  text-decoration: none;
+/* =========================================
+   CLOCK AND WEATHER WIDGET
+   ========================================= */
+
+.site-footer #manali-live-widget {
+  display: grid;
+  grid-template-columns: minmax(145px, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+  width: min(100%, 490px);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 0 auto;
+  padding: 17px 20px;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  border-radius: 16px;
+  background: rgba(128, 128, 128, 0.055);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.045);
+  color: #252525;
+  text-align: left;
+  font-family: inherit;
+  font-size: 12px;
 }
 
-
-/* Underline all links in the main content */
-.main-content a {
-  color: #555555 !important;
-  text-decoration: underline !important;
+#manali-live-widget .footer-clock,
+#manali-live-widget .footer-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
 }
 
-.main-content a:hover {
-  color: #222222 !important;
-  text-decoration: underline !important;
+#manali-live-widget .footer-clock-time,
+#manali-live-widget .footer-weather-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
 }
 
-
-/* RA and Blog links: no underline */
-
-.ra-page a,
-.ra-page a:hover,
-.blog-page a,
-.blog-page a:hover {
-  text-decoration: none !important;
+#manali-live-widget .footer-clock-time {
+  white-space: nowrap;
 }
 
+#manali-live-widget .footer-clock-time > span {
+  font-size: 1.15rem;
+  opacity: 0.7;
+}
 
-/* THEME TOGGLE STYLES */
-#theme-toggle {
-  border: 1px solid #bbbbbb;
-  border-radius: 50%;
-  width: 34px;
-  height: 34px;
-  padding: 0;
-  background: transparent;
-  color: inherit;
-  font-size: 20px;
+#manali-live-widget #manali-clock {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+#manali-live-widget #manali-date {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #777;
+}
+
+#manali-live-widget #manali-location-label {
+  max-width: 100%;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+#manali-live-widget .footer-weather {
+  padding-left: 18px;
+  border-left: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+#manali-live-widget #manali-weather-icon {
+  font-size: 1.8rem;
   line-height: 1;
-  cursor: pointer;
-  flex-shrink: 0;
 }
 
-#theme-toggle:hover {
-  background: #eeeeee;
+#manali-live-widget #manali-temperature {
+  font-size: 1.8rem;
+  font-weight: 650;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
 }
 
-body.dark-mode {
-  background: #171717;
-  color: #e5e5e5;
+#manali-live-widget #manali-weather-details,
+#manali-live-widget #manali-coordinates {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: #777;
+  overflow-wrap: anywhere;
 }
 
-body.dark-mode .site-header,
-body.dark-mode .site-footer,
-body.dark-mode .updates-section {
-  border-color: #383838;
+#manali-live-widget #manali-coordinates {
+  font-size: 0.68rem;
 }
 
-body.dark-mode .site-name a,
-body.dark-mode .site-name a:hover,
-body.dark-mode .navigation a,
-body.dark-mode .main-content a,
-body.dark-mode .main-content a:hover {
-  color: #e5e5e5 !important;
+#manali-live-widget .live-widget-label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #777;
 }
 
-body.dark-mode .site-subtitle,
-body.dark-mode .site-footer {
-  color: #b0b0b0;
-}
 
-body.dark-mode #theme-toggle {
-  border-color: #666666;
-  color: #f5f5f5;
-}
+/* =========================================
+   THEME TOGGLE
+   ========================================= */
 
-body.dark-mode #theme-toggle:hover {
-  background: #333333;
-}
-
-body.dark-mode img {
-  background: transparent;
-}
-
-/* Improved theme toggle and high-contrast themes */
 #theme-toggle {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  width: 44px !important;
-  height: 44px !important;
-  min-width: 44px;
-  margin-left: 4px;
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  margin: 0 0 0 2px !important;
   padding: 0 !important;
   border: 1px solid #999 !important;
   border-radius: 50%;
   background: #fff !important;
   color: #111 !important;
-  font-size: 30px !important;
-  line-height: 1;
+  font-size: 19px !important;
+  line-height: 1 !important;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -379,139 +389,19 @@ body.dark-mode img {
   background: #eee !important;
 }
 
-body.dark-mode,
-body.dark-mode html {
-  background-color: #000 !important;
-  color: #fff !important;
-}
 
-body.dark-mode .site-header,
-body.dark-mode .main-content,
-body.dark-mode .site-footer {
-  background-color: #000 !important;
-  color: #fff !important;
-}
+/* =========================================
+   WEBSITE SEARCH
+   ========================================= */
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode p,
-body.dark-mode li,
-body.dark-mode strong,
-body.dark-mode .site-name a,
-body.dark-mode .navigation a,
-body.dark-mode .main-content a,
-body.dark-mode .site-footer {
-  color: #fff !important;
-}
-
-body.dark-mode .site-header,
-body.dark-mode .site-footer,
-body.dark-mode .updates-section {
-  border-color: #444 !important;
-}
-
-body.dark-mode #theme-toggle {
-  background: #222 !important;
-  color: #fff !important;
-  border-color: #777 !important;
-}
-
-body.dark-mode #theme-toggle:hover {
-  background: #444 !important;
-}
-
-@media (max-width: 800px) {
-  #theme-toggle {
-    margin-top: 8px;
-  }
-}
-
-
-/* GLOBAL THEME FIX */
-
-/* Compact moon/sun button */
-#theme-toggle {
-  width: 30px !important;
-  height: 30px !important;
-  min-width: 30px !important;
-  margin: 0 0 0 2px !important;
-  padding: 0 !important;
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  font-size: 19px !important;
-  line-height: 1 !important;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* Dark mode across every page using the shared layout */
-html:has(body.dark-mode),
-body.dark-mode {
-  background: #000 !important;
-  color: #f5f5f5 !important;
-  min-height: 100%;
-}
-
-body.dark-mode .site-header,
-body.dark-mode .main-content,
-body.dark-mode .site-footer,
-body.dark-mode .about-section,
-body.dark-mode .about-text,
-body.dark-mode .updates-section,
-body.dark-mode .updates-list,
-body.dark-mode .field-notes {
-  background: #000 !important;
-  color: #f5f5f5 !important;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode p,
-body.dark-mode li,
-body.dark-mode strong,
-body.dark-mode em,
-body.dark-mode blockquote,
-body.dark-mode label,
-body.dark-mode small,
-body.dark-mode .site-name a,
-body.dark-mode .navigation a,
-body.dark-mode .main-content a,
-body.dark-mode .site-footer,
-body.dark-mode .site-subtitle {
-  color: #f5f5f5 !important;
-}
-
-body.dark-mode .site-header,
-body.dark-mode .site-footer,
-body.dark-mode .updates-section {
-  border-color: #383838 !important;
-}
-
-body.dark-mode #theme-toggle {
-  background: #222 !important;
-  color: #fff !important;
-  border-color: #777 !important;
-}
-
-body.dark-mode #theme-toggle:hover {
-  background: #444 !important;
-}
-
-
-/* WEBSITE SEARCH */
 #site-search-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 30px;
   height: 30px;
-  padding: 0;
   margin: 0;
+  padding: 0;
   border: 0;
   background: transparent;
   color: inherit;
@@ -535,7 +425,6 @@ body.dark-mode #theme-toggle:hover {
   width: min(440px, calc(100vw - 40px));
   max-height: 70vh;
   overflow-y: auto;
-  box-sizing: border-box;
   padding: 20px;
   background: #fff;
   color: #222;
@@ -552,7 +441,6 @@ body.dark-mode #theme-toggle:hover {
 
 #site-search-input {
   width: 100%;
-  box-sizing: border-box;
   padding: 11px 12px;
   border: 1px solid #aaa;
   border-radius: 6px;
@@ -589,6 +477,66 @@ body.dark-mode #theme-toggle:hover {
   color: #666;
 }
 
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+html:has(body.dark-mode),
+body.dark-mode {
+  background: #000 !important;
+  color: #f5f5f5 !important;
+}
+
+body.dark-mode .site-header,
+body.dark-mode .main-content,
+body.dark-mode .site-footer,
+body.dark-mode .about-section,
+body.dark-mode .about-text,
+body.dark-mode .updates-section,
+body.dark-mode .updates-list,
+body.dark-mode .field-notes {
+  background: #000 !important;
+  color: #f5f5f5 !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode strong,
+body.dark-mode em,
+body.dark-mode blockquote,
+body.dark-mode label,
+body.dark-mode small,
+body.dark-mode .site-name a,
+body.dark-mode .site-name a:hover,
+body.dark-mode .navigation a,
+body.dark-mode .main-content a,
+body.dark-mode .main-content a:hover,
+body.dark-mode .site-footer,
+body.dark-mode .site-subtitle {
+  color: #f5f5f5 !important;
+}
+
+body.dark-mode .site-header,
+body.dark-mode .site-footer,
+body.dark-mode .updates-section {
+  border-color: #383838 !important;
+}
+
+body.dark-mode #theme-toggle {
+  background: #222 !important;
+  color: #fff !important;
+  border-color: #777 !important;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background: #444 !important;
+}
+
 body.dark-mode #site-search-panel {
   background: #171717;
   color: #f5f5f5;
@@ -610,481 +558,10 @@ body.dark-mode #site-search-results li {
   border-color: #444;
 }
 
-@media (max-width: 800px) {
-  #site-search-panel {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 10px;
-    right: 10px;
-    width: auto;
-  }
-}
-
-
-/* LIVE CLOCK AND MANALI WEATHER */
-#manali-live-widget {
-  max-width: 1110px;
-  margin: 26px auto 30px;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 28px;
-  border-bottom: 1px solid #e8e8e8;
-  font-family: inherit;
-  color: #252525;
-}
-#manali-live-widget .live-clock-block,
-#manali-live-widget .live-weather-block {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  min-width: 0;
-}
-#manali-live-widget .live-widget-label {
-  font-size: 10px;
-  letter-spacing: 1.3px;
-  color: #777;
-}
-#manali-clock {
-  font-size: 32px;
-  line-height: 1.2;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 1px;
-}
-#manali-date,
-#manali-weather-details {
-  font-size: 12px;
-  line-height: 1.6;
-  color: #777;
-}
-#manali-live-widget .live-weather-main {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 12px;
-}
-#manali-temperature {
-  font-size: 29px;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
-#manali-weather-description {
-  font-size: 14px;
-}
-body.dark-mode #manali-live-widget {
-  color: #f5f5f5;
-  border-bottom-color: #333;
-}
-body.dark-mode #manali-live-widget .live-widget-label,
-body.dark-mode #manali-date,
-body.dark-mode #manali-weather-details {
-  color: #aaa;
-}
-@media (max-width: 600px) {
-  #manali-live-widget {
-    margin: 20px 20px 24px;
-    padding: 16px 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  #manali-clock { font-size: 29px; }
-}
-
-
-/* CLOCK AND WEATHER BELOW HOMEPAGE UPDATES */
-#manali-live-widget {
-  max-width: 1110px;
-  margin: 18px auto 30px;
-  padding: 16px 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 30px;
-  border-bottom: 0;
-  text-align: right;
-}
-#manali-live-widget .live-clock-block,
-#manali-live-widget .live-weather-block {
-  align-items: flex-end;
-}
-#manali-live-widget .live-widget-label { display: none; }
-#manali-clock { font-size: 18px; }
-#manali-date { display: inline; font-size: 13px; }
-#manali-live-widget .live-weather-main {
-  justify-content: flex-end;
-  gap: 9px;
-}
-#manali-weather-description { font-size: 22px; }
-#manali-temperature { font-size: 22px; }
-@media (max-width: 600px) {
-  #manali-live-widget {
-    margin: 16px 20px 24px;
-    align-items: flex-end;
-    gap: 16px;
-  }
-  #manali-clock { font-size: 16px; }
-}
-
-
-
-/* SINGLE VISITOR LOCAL WEATHER WIDGET */
-#manali-live-widget {
-  max-width: 1110px;
-  margin: 28px auto 0;
-  padding: 18px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 28px;
-  border-top: 1px solid #e8e8e8;
-  color: #252525;
-  font-family: inherit;
-}
-#manali-live-widget .live-clock-block,
-#manali-live-widget .live-weather-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  min-width: 0;
-}
-#manali-live-widget .live-clock-line,
-#manali-live-widget .live-weather-main {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-#manali-live-widget .live-clock-icon {
-  font-size: 23px;
-  color: #777;
-}
-#manali-clock {
-  font-size: 20px;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
-#manali-date,
-#manali-weather-details {
-  font-size: 12px;
-  line-height: 1.6;
-  color: #777;
-}
-#manali-live-widget .live-widget-label {
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: #777;
-}
-#manali-weather-icon,
-#manali-temperature {
-  font-size: 23px;
-}
-#manali-temperature {
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
-body.dark-mode #manali-live-widget {
-  color: #f5f5f5;
-  border-top-color: #333;
-}
-body.dark-mode #manali-live-widget .live-widget-label,
-body.dark-mode #manali-date,
-body.dark-mode #manali-weather-details,
-body.dark-mode #manali-live-widget .live-clock-icon {
-  color: #aaa;
-}
-@media (max-width: 600px) {
-  #manali-live-widget {
-    margin: 22px 20px 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-}
-
-
-/* FOOTER CLOCK AND WEATHER — SAME ROW AS COPYRIGHT */
-footer .footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-#manali-live-widget {
-  margin-left: auto;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 24px;
-  text-align: right;
-  font-size: 12px;
-  min-width: 0;
-}
-#manali-live-widget .footer-clock,
-#manali-live-widget .footer-weather {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-}
-#manali-live-widget .footer-clock-time,
-#manali-live-widget .footer-weather-line {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 7px;
-}
-#manali-clock { font-size: 15px; font-variant-numeric: tabular-nums; }
-#manali-date,
-#manali-weather-details,
-#manali-coordinates,
-#manali-location-label {
-  font-size: 10px;
-  line-height: 1.5;
-  color: #777;
-}
-#manali-weather-icon,
-#manali-temperature { font-size: 18px; }
-#manali-temperature { font-weight: 500; }
-body.dark-mode #manali-live-widget { color: #f5f5f5; }
-body.dark-mode #manali-date,
-body.dark-mode #manali-weather-details,
-body.dark-mode #manali-coordinates,
-body.dark-mode #manali-location-label { color: #aaa; }
-@media (max-width: 650px) {
-  footer .footer-inner {
-    align-items: flex-start;
-  }
-  #manali-live-widget {
-    width: 100%;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-}
-
-/* FINAL FIX: header left, footer copyright left, weather right */
-.site-header {
-  width: auto;
-  max-width: 1200px;
-  margin: 55px auto 0;
-  padding: 0 45px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  box-sizing: border-box;
-}
-
-.site-header .site-name {
-  flex: 0 0 auto;
-  margin: 0 auto 0 0;
-  text-align: left;
-}
-
-.site-header .navigation {
-  flex: 0 0 auto;
-  margin-left: 24px;
-}
-
-.site-footer {
-  width: auto;
-  max-width: 1110px;
-  margin: auto auto 0;
-  padding: 18px 0 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  box-sizing: border-box;
-  border: none !important;
-}
-
-.site-footer > p {
-  flex: 0 0 auto;
-  margin: 0 auto 0 0;
-  text-align: left;
-}
-
-.site-footer #manali-live-widget {
-  flex: 0 1 auto;
-  width: auto;
-  max-width: 100%;
-  margin: 0 0 0 auto;
-  padding: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: right;
-  border: none !important;
-}
-
-@media (max-width: 800px) {
-  .site-header {
-    margin-top: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .site-header .navigation {
-    margin-left: 0;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .site-footer {
-    margin-left: 20px;
-    margin-right: 20px;
-    flex-wrap: wrap;
-  }
-
-  .site-footer #manali-live-widget {
-    width: 100%;
-    margin-left: 0;
-    justify-content: flex-end;
-  }
-}
-
-
-
-/* ==========================================
-   HOMEPAGE CLOCK + WEATHER — REFINED DESIGN
-   ========================================== */
-
-.site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  flex-wrap: wrap;
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-
-.site-footer > p {
-  margin: 0;
-  flex: 0 0 auto;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* Main widget */
-.site-footer #manali-live-widget {
-  display: grid;
-  grid-template-columns: minmax(155px, auto) minmax(220px, 1fr);
-  align-items: center;
-  gap: 26px;
-  width: min(100%, 490px);
-  max-width: 100%;
-  margin: 0 0 0 auto;
-  padding: 17px 20px;
-  box-sizing: border-box;
-  text-align: left;
-  border: 1px solid rgba(128, 128, 128, 0.25) !important;
-  border-radius: 16px;
-  background: rgba(128, 128, 128, 0.055);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.045);
-}
-
-/* Clock area */
-#manali-live-widget .footer-clock {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 7px;
-}
-
-#manali-live-widget .footer-clock-time {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-#manali-live-widget .footer-clock-time > span {
-  font-size: 1.15rem;
-  opacity: 0.7;
-}
-
-#manali-live-widget #manali-clock {
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  font-weight: 650;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.045em;
-  line-height: 1.2;
-}
-
-#manali-live-widget #manali-date {
-  font-size: 0.78rem;
-  line-height: 1.5;
-  opacity: 0.7;
-}
-
-/* Weather area */
-#manali-live-widget .footer-weather {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 5px;
-  min-width: 0;
-  padding-left: 20px;
-  border-left: 1px solid rgba(128, 128, 128, 0.25);
-}
-
-#manali-live-widget #manali-location-label {
-  max-width: 100%;
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
-}
-
-#manali-live-widget .footer-weather-line {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 42px;
-}
-
-#manali-live-widget #manali-weather-icon {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-#manali-live-widget #manali-temperature {
-  font-size: 1.8rem;
-  font-weight: 650;
-  letter-spacing: -0.05em;
-  line-height: 1.2;
-  font-variant-numeric: tabular-nums;
-}
-
-#manali-live-widget #manali-weather-details {
-  font-size: 0.72rem;
-  line-height: 1.6;
-  opacity: 0.75;
-  overflow-wrap: anywhere;
-}
-
-#manali-live-widget #manali-coordinates {
-  font-size: 0.68rem;
-  line-height: 1.5;
-  font-variant-numeric: tabular-nums;
-  opacity: 0.6;
-  overflow-wrap: anywhere;
-}
-
-/* Dark theme */
 body.dark-mode #manali-live-widget {
   background: rgba(255, 255, 255, 0.035);
-  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.14);
   box-shadow: 0 5px 24px rgba(0, 0, 0, 0.15);
 }
 
@@ -1092,9 +569,61 @@ body.dark-mode #manali-live-widget .footer-weather {
   border-left-color: rgba(255, 255, 255, 0.16);
 }
 
-/* Tablet and mobile */
+body.dark-mode #manali-live-widget #manali-date,
+body.dark-mode #manali-live-widget #manali-weather-details,
+body.dark-mode #manali-live-widget #manali-coordinates,
+body.dark-mode #manali-live-widget .live-widget-label {
+  color: #aaa;
+}
+
+body.dark-mode img {
+  background: transparent;
+}
+
+
+/* =========================================
+   TABLET AND MOBILE
+   ========================================= */
+
 @media (max-width: 800px) {
+  .site-header {
+    margin-top: 30px;
+    padding: 0 25px 15px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .site-header .site-name {
+    margin-right: auto;
+  }
+
+  .navigation {
+    margin-left: 0;
+    padding-top: 0;
+    gap: 17px;
+    flex-wrap: wrap;
+  }
+
+  .main-content {
+    margin-top: 35px;
+    padding: 0 25px;
+  }
+
+  .about-section {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 30px;
+  }
+
+  .about-photo img {
+    max-width: 500px;
+  }
+
+  .updates-section {
+    margin-top: 45px;
+  }
+
   .site-footer {
+    padding: 24px 25px;
     align-items: flex-start;
     gap: 18px;
   }
@@ -1103,9 +632,35 @@ body.dark-mode #manali-live-widget .footer-weather {
     width: 100%;
     margin: 0;
   }
+
+  #site-search-panel {
+    right: 10px;
+    width: min(440px, calc(100vw - 40px));
+  }
 }
 
 @media (max-width: 440px) {
+  .site-header {
+    margin-top: 25px;
+  }
+
+  .site-name a {
+    font-size: 23px;
+  }
+
+  .main-content {
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+
+  .main-content h3 {
+    font-size: 25px;
+  }
+
+  .site-footer {
+    padding: 20px;
+  }
+
   .site-footer #manali-live-widget {
     grid-template-columns: minmax(0, 1fr);
     gap: 15px;
@@ -1124,19 +679,5 @@ body.dark-mode #manali-live-widget .footer-weather {
 
   #manali-live-widget #manali-clock {
     font-size: 1.65rem;
-  }
-}
-
-
-/* Align site name with the left edge of homepage content */
-.site-header {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-@media (max-width: 800px) {
-  .site-header {
-    padding-left: 0;
-    padding-right: 0;
   }
 }
