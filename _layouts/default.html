@@ -38,12 +38,12 @@
           <path d="m16 16 4.5 4.5"></path>
         </svg>
       </button>
+
       <button id="theme-toggle" type="button"
               aria-label="Switch to dark theme"
               title="Switch theme">☾</button>
     </nav>
 
-  
     <section id="site-search-panel" aria-label="Website search" hidden>
       <label for="site-search-input">Search this website</label>
       <input id="site-search-input" type="search"
@@ -54,177 +54,190 @@
       </p>
       <ul id="site-search-results"></ul>
     </section>
+
   </header>
-
-
-
 
   <main class="main-content{% if page.path contains 'blog/' %} blog-page{% endif %}{% if page.path contains 'ra/' %} ra-page{% endif %}">
     {{ content }}
   </main>
 
-  
-<!-- Single visitor-local time and weather widget -->
-
-
-<footer class="site-footer">
+  <footer class="site-footer">
     <p>© {{ 'now' | date: "%Y" }} Tikeshwar Singh</p>
-  
-<!-- Footer time and local weather -->
-<div id="manali-live-widget" aria-label="Local time and weather">
-  <div class="footer-clock">
-    <div class="footer-clock-time">
-      <span aria-hidden="true">◷</span>
-      <time id="manali-clock">Loading time…</time>
+
+    {% if page.url == "/" %}
+    <!-- Homepage-only visitor-local time and weather widget -->
+    <div id="manali-live-widget" aria-label="Local time and weather">
+      <div class="footer-clock">
+        <div class="footer-clock-time">
+          <span aria-hidden="true">◷</span>
+          <time id="manali-clock">Loading time…</time>
+        </div>
+        <span id="manali-date"></span>
+      </div>
+
+      <div class="footer-weather">
+        <span id="manali-location-label">Finding your location…</span>
+        <div class="footer-weather-line">
+          <span id="manali-weather-icon" aria-hidden="true">☁</span>
+          <strong id="manali-temperature">--°C</strong>
+        </div>
+        <span id="manali-weather-details">Loading local weather…</span>
+        <span id="manali-coordinates"></span>
+      </div>
     </div>
-    <span id="manali-date"></span>
-  </div>
-  <div class="footer-weather">
-    <span id="manali-location-label">Finding your location…</span>
-    <div class="footer-weather-line">
-      <span id="manali-weather-icon" aria-hidden="true">☁</span>
-      <strong id="manali-temperature">--°C</strong>
-    </div>
-    <span id="manali-weather-details">Loading local weather…</span>
-    <span id="manali-coordinates"></span>
-  </div>
-</div>
 
-<script>
-(() => {
-  const $ = id => document.getElementById(id);
-  const clock = $("manali-clock");
-  const date = $("manali-date");
-  const place = $("manali-location-label");
-  const temp = $("manali-temperature");
-  const icon = $("manali-weather-icon");
-  const details = $("manali-weather-details");
-  const coordsText = $("manali-coordinates");
+    <script>
+    (() => {
+      const $ = id => document.getElementById(id);
+      const clock = $("manali-clock");
+      const date = $("manali-date");
+      const place = $("manali-location-label");
+      const temp = $("manali-temperature");
+      const icon = $("manali-weather-icon");
+      const details = $("manali-weather-details");
+      const coordsText = $("manali-coordinates");
 
-  if (!clock || !date || !place || !temp || !icon || !details || !coordsText) return;
+      if (!clock || !date || !place || !temp || !icon || !details || !coordsText) return;
 
-  let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
-  let coords = null;
+      let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+      let coords = null;
 
-  function updateClock() {
-    const now = new Date();
-    clock.textContent = new Intl.DateTimeFormat(undefined, {
-      timeZone, hour: "2-digit", minute: "2-digit",
-      second: "2-digit", hour12: true
-    }).format(now);
-    date.textContent = new Intl.DateTimeFormat(undefined, {
-      timeZone, weekday: "short", day: "numeric",
-      month: "short", year: "numeric"
-    }).format(now);
-  }
+      function updateClock() {
+        const now = new Date();
+        clock.textContent = new Intl.DateTimeFormat(undefined, {
+          timeZone, hour: "2-digit", minute: "2-digit",
+          second: "2-digit", hour12: true
+        }).format(now);
+        date.textContent = new Intl.DateTimeFormat(undefined, {
+          timeZone, weekday: "short", day: "numeric",
+          month: "short", year: "numeric"
+        }).format(now);
+      }
 
-  function weatherIcon(code) {
-    if (code === 0) return "☀";
-    if (code === 1) return "🌤";
-    if (code === 2 || code === 3) return "☁";
-    if (code === 45 || code === 48) return "🌫";
-    if (code >= 51 && code <= 67) return "🌧";
-    if (code >= 71 && code <= 77) return "❄";
-    if (code >= 80 && code <= 82) return "🌦";
-    if (code >= 85 && code <= 86) return "🌨";
-    if (code >= 95) return "⛈";
-    return "☁";
-  }
+      function weatherIcon(code) {
+        if (code === 0) return "☀";
+        if (code === 1) return "🌤";
+        if (code === 2 || code === 3) return "☁";
+        if (code === 45 || code === 48) return "🌫";
+        if (code >= 51 && code <= 67) return "🌧";
+        if (code >= 71 && code <= 77) return "❄";
+        if (code >= 80 && code <= 82) return "🌦";
+        if (code >= 85 && code <= 86) return "🌨";
+        if (code >= 95) return "⛈";
+        return "☁";
+      }
 
-  async function requestJSON(url) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 9000);
-    try {
-      const response = await fetch(url, { signal: controller.signal });
-      if (!response.ok) throw new Error("Request failed");
-      return await response.json();
-    } finally {
-      clearTimeout(timeout);
-    }
-  }
-
-  async function loadAt(lat, lon, fallbackName, fallbackZone) {
-    coords = { lat, lon };
-    coordsText.textContent = "Coordinates: " + lat.toFixed(4) + ", " + lon.toFixed(4);
-    place.textContent = fallbackName || "Your location";
-
-    try {
-      const geo = await requestJSON(
-        "https://api.bigdatacloud.net/data/reverse-geocode-client" +
-        "?latitude=" + lat + "&longitude=" + lon + "&localityLanguage=en"
-      );
-      const locality = geo.locality || geo.city || geo.principalSubdivision;
-      place.textContent = [
-        locality, geo.principalSubdivision, geo.countryName
-      ].filter((v, i, a) => v && a.indexOf(v) === i).join(", ") || fallbackName || "Your location";
-      timeZone = geo.timezone?.name || fallbackZone || timeZone;
-    } catch {
-      timeZone = fallbackZone || timeZone;
-    }
-
-    updateClock();
-    await refreshWeather();
-  }
-
-  async function refreshWeather() {
-    if (!coords) return;
-    try {
-      const data = await requestJSON(
-        "https://api.open-meteo.com/v1/forecast" +
-        "?latitude=" + coords.lat + "&longitude=" + coords.lon +
-        "&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto"
-      );
-      const c = data.current;
-      if (!c) throw new Error("No current weather");
-      temp.textContent = Math.round(c.temperature_2m) + "°C";
-      icon.textContent = weatherIcon(c.weather_code);
-      details.textContent =
-        "Feels like " + Math.round(c.apparent_temperature) + "°C" +
-        " · Humidity " + c.relative_humidity_2m + "%" +
-        " · Wind " + Math.round(c.wind_speed_10m) + " km/h";
-      timeZone = data.timezone || timeZone;
-      updateClock();
-    } catch {
-      details.textContent = "Weather temporarily unavailable";
-    }
-  }
-
-  function useNetworkFallback() {
-    requestJSON("https://ipapi.co/json/")
-      .then(data => {
-        if (typeof data.latitude !== "number" || typeof data.longitude !== "number") {
-          throw new Error("Network location unavailable");
+      async function requestJSON(url) {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 9000);
+        try {
+          const response = await fetch(url, { signal: controller.signal });
+          if (!response.ok) throw new Error("Request failed");
+          return await response.json();
+        } finally {
+          clearTimeout(timeout);
         }
-        loadAt(
-          data.latitude, data.longitude,
-          [data.city, data.region, data.country_name].filter(Boolean).join(", "),
-          data.timezone
+      }
+
+      async function loadAt(lat, lon, fallbackName, fallbackZone) {
+        coords = { lat, lon };
+        coordsText.textContent =
+          "Coordinates: " + lat.toFixed(4) + ", " + lon.toFixed(4);
+        place.textContent = fallbackName || "Your location";
+
+        try {
+          const geo = await requestJSON(
+            "https://api.bigdatacloud.net/data/reverse-geocode-client" +
+            "?latitude=" + lat + "&longitude=" + lon + "&localityLanguage=en"
+          );
+
+          const locality = geo.locality || geo.city || geo.principalSubdivision;
+          place.textContent = [
+            locality, geo.principalSubdivision, geo.countryName
+          ].filter((v, i, a) => v && a.indexOf(v) === i).join(", ") ||
+            fallbackName || "Your location";
+
+          timeZone = geo.timezone?.name || fallbackZone || timeZone;
+        } catch {
+          timeZone = fallbackZone || timeZone;
+        }
+
+        updateClock();
+        await refreshWeather();
+      }
+
+      async function refreshWeather() {
+        if (!coords) return;
+
+        try {
+          const data = await requestJSON(
+            "https://api.open-meteo.com/v1/forecast" +
+            "?latitude=" + coords.lat + "&longitude=" + coords.lon +
+            "&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto"
+          );
+
+          const c = data.current;
+          if (!c) throw new Error("No current weather");
+
+          temp.textContent = Math.round(c.temperature_2m) + "°C";
+          icon.textContent = weatherIcon(c.weather_code);
+          details.textContent =
+            "Feels like " + Math.round(c.apparent_temperature) + "°C" +
+            " · Humidity " + c.relative_humidity_2m + "%" +
+            " · Wind " + Math.round(c.wind_speed_10m) + " km/h";
+
+          timeZone = data.timezone || timeZone;
+          updateClock();
+        } catch {
+          details.textContent = "Weather temporarily unavailable";
+        }
+      }
+
+      function useNetworkFallback() {
+        requestJSON("https://ipapi.co/json/")
+          .then(data => {
+            if (typeof data.latitude !== "number" ||
+                typeof data.longitude !== "number") {
+              throw new Error("Network location unavailable");
+            }
+
+            loadAt(
+              data.latitude, data.longitude,
+              [data.city, data.region, data.country_name]
+                .filter(Boolean).join(", "),
+              data.timezone
+            );
+          })
+          .catch(() => {
+            place.textContent = "Location unavailable";
+            details.textContent =
+              "Allow browser location access to show local weather.";
+            coordsText.textContent = "";
+          });
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+      setInterval(refreshWeather, 10 * 60 * 1000);
+
+      if (navigator.geolocation && window.isSecureContext) {
+        navigator.geolocation.getCurrentPosition(
+          p => loadAt(p.coords.latitude, p.coords.longitude, "", ""),
+          useNetworkFallback,
+          {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 60000
+          }
         );
-      })
-      .catch(() => {
-        place.textContent = "Location unavailable";
-        details.textContent = "Allow browser location access to show local weather.";
-        coordsText.textContent = "";
-      });
-  }
+      } else {
+        useNetworkFallback();
+      }
+    })();
+    </script>
+    {% endif %}
 
-  updateClock();
-  setInterval(updateClock, 1000);
-  setInterval(refreshWeather, 10 * 60 * 1000);
-
-  if (navigator.geolocation && window.isSecureContext) {
-    navigator.geolocation.getCurrentPosition(
-      p => loadAt(p.coords.latitude, p.coords.longitude, "", ""),
-      useNetworkFallback,
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
-    );
-  } else {
-    useNetworkFallback();
-  }
-})();
-</script>
-
-</footer>
+  </footer>
 
   <script id="theme-toggle-script">
     (function () {
@@ -260,6 +273,7 @@
       const input = document.getElementById("site-search-input");
       const results = document.getElementById("site-search-results");
       const status = document.getElementById("site-search-status");
+
       if (!button || !panel || !input || !results || !status) return;
 
       let indexPromise;
@@ -300,6 +314,7 @@
           event.preventDefault();
           openSearch();
         }
+
         if (event.key === "Escape" && !panel.hidden) closeSearch();
       });
 
@@ -322,12 +337,14 @@
             const title = page.title || "Untitled page";
             const content = (page.content || "").toLowerCase();
             const searchable = (title + " " + content).toLowerCase();
+
             const score = terms.reduce(function (total, term) {
               if (!searchable.includes(term)) return -10000;
               return total +
                 (title.toLowerCase().includes(term) ? 5 : 0) +
                 (content.split(term).length - 1);
             }, 0);
+
             return { page: page, score: score };
           }).filter(function (item) {
             return item.score >= 0;
@@ -353,19 +370,21 @@
             const excerpt = document.createElement("p");
             const text = (item.page.content || "")
               .replace(/\s+/g, " ").trim();
+
             excerpt.textContent = text.length > 170
               ? text.slice(0, 170) + "..."
               : text;
+
             li.appendChild(excerpt);
             results.appendChild(li);
           });
-        } catch (error) {
+        } catch {
           status.textContent =
             "Search could not load. Please refresh and try again.";
         }
       });
     })();
-  </script>
+    </script>
 
 </body>
 
