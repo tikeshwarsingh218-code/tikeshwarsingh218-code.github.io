@@ -752,3 +752,81 @@ body.dark-mode img {
 #manali-live-widget {
   display: none !important;
 }
+
+
+
+/* Homepage photo: restrained size and responsive layout */
+.about-photo {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding-top: 4px;
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-credit {
+  margin: 7px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #777;
+}
+
+.image-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+body.dark-mode .image-credit {
+  color: #aaa;
+}
+
+@media (max-width: 800px) {
+  .about-photo {
+    max-width: 340px;
+    margin: 0;
+  }
+}
+
+
+.about-photo {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.image-credit {
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #777;
+}
+
+.image-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+body.dark-mode .image-credit {
+  color: #aaa;
+}
+
+@media (max-width: 800px) {
+  .about-photo {
+    max-width: 340px;
+    margin-left: 0;
+  }
+}
