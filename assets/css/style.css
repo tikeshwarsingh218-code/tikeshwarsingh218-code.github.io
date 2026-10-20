@@ -747,3 +747,8 @@ body.dark-mode img {
     font-size: 18px;
   }
 }
+
+/* Remove clock and weather widget */
+#manali-live-widget {
+  display: none !important;
+}
