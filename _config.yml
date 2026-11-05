@@ -9,3 +9,6 @@ baseurl: ""
 markdown: kramdown
 
 permalink: pretty
+
+exclude:
+  - nature

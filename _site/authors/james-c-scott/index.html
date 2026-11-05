@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>James C. Scott | Tikeshwar Singh</title>
+
+  <link rel="stylesheet"
+        href="/assets/css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <div class="site-name">
+      <a href="/">Tikeshwar Singh</a>
+    </div>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="/">home</a>
+      <a href="/research/">research</a>
+      <a href="/resources/">resources</a>
+      <a href="/blog/">blog</a>
+      <a href="/nature/">nature</a>
+      <a href="/ra/">RA</a>
+      <a href="/cv/Singh_CV.pdf">cv</a>
+
+      <button id="site-search-toggle"
+              type="button"
+              aria-label="Search website"
+              title="Search website"
+              aria-expanded="false"
+              aria-controls="site-search-panel">
+        <svg width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.8"></circle>
+          <path d="m16 16 4.5 4.5"></path>
+        </svg>
+      </button>
+
+      <button id="theme-toggle"
+              type="button"
+              aria-label="Switch to dark theme"
+              title="Switch theme">☾</button>
+    </nav>
+
+    <section id="site-search-panel"
+             aria-label="Website search"
+             hidden>
+      <label for="site-search-input">Search this website</label>
+
+      <input id="site-search-input"
+             type="search"
+             placeholder="Search research, blog, resources..."
+             autocomplete="off">
+
+      <p id="site-search-status" aria-live="polite">
+        Type to search all website pages.
+      </p>
+
+      <ul id="site-search-results"></ul>
+    </section>
+
+  </header>
+
+  <main class="main-content">
+    <h1 id="james-c-scott">James C. Scott</h1>
+
+<p>James C. Scott (1936–2024) was an American political scientist and anthropologist whose work focused on political economy, agrarian societies, peasant politics, state power, resistance, and Southeast Asia. He was a professor at Yale University, where he held appointments in political science, anthropology, and environmental studies. He also founded and directed Yale’s Program in Agrarian Studies. (<a href="https://politicalscience.yale.edu/people/james-scott">yale.edu</a>)</p>
+
+<p>Scott’s research was strongly grounded in fieldwork and historical analysis. His work examined how ordinary people respond to systems of political and economic power, including the ways in which peasants and other subordinate groups resist, negotiate with, or adapt to state authority and social hierarchies.</p>
+
+<p>His major books include <em>The Moral Economy of the Peasant</em>, <em>Weapons of the Weak</em>, <em>Domination and the Arts of Resistance</em>, <em>Seeing Like a State</em>, <em>The Art of Not Being Governed</em>, and <em>Against the Grain</em>. His research crossed the boundaries of political science, anthropology, history, geography, and development studies. (<a href="https://politicalscience.yale.edu/people/james-scott">yale.edu</a>)</p>
+
+<p><em>Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</em>, first published in 1998, examined why large-scale state planning can fail when governments simplify complex societies and environments in order to make them easier to administer. The book emphasizes the importance of local, practical knowledge that may be lost when centralized schemes impose standardized systems. (<a href="https://yalebooks.yale.edu/book/9780300078152/seeing-like-a-state/">Yale University Press</a>)</p>
+
+<p>Scott’s later work extended these interests to questions of state formation, agriculture, political autonomy, and societies that remained relatively outside the control of centralized states. His scholarship had a wide influence across the social sciences, particularly in studies of development, governance, agrarian change, and political resistance.</p>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Tikeshwar Singh</p>
+  </footer>
+
+  <script id="theme-toggle-script">
+    (function () {
+      const button = document.getElementById("theme-toggle");
+
+      if (!button) return;
+
+      let saved = null;
+
+      try {
+        saved = localStorage.getItem("site-theme");
+      } catch (error) {
+        // Continue without saved theme if storage is unavailable.
+      }
+
+      if (saved === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+
+      function updateButton() {
+        const dark = document.body.classList.contains("dark-mode");
+
+        button.textContent = dark ? "☀" : "☾";
+        button.setAttribute(
+          "aria-label",
+          dark ? "Switch to light theme" : "Switch to dark theme"
+        );
+        button.title = dark
+          ? "Switch to light theme"
+          : "Switch to dark theme";
+      }
+
+      updateButton();
+
+      button.addEventListener("click", function () {
+        const dark = document.body.classList.toggle("dark-mode");
+
+        try {
+          localStorage.setItem("site-theme", dark ? "dark" : "light");
+        } catch (error) {
+          // Theme still works for the current page.
+        }
+
+        updateButton();
+      });
+    })();
+  </script>
+
+  <script id="site-search-script">
+    (function () {
+      const button = document.getElementById("site-search-toggle");
+      const panel = document.getElementById("site-search-panel");
+      const input = document.getElementById("site-search-input");
+      const results = document.getElementById("site-search-results");
+      const status = document.getElementById("site-search-status");
+
+      if (!button || !panel || !input || !results || !status) return;
+
+      let indexPromise = null;
+
+      function loadIndex() {
+        if (!indexPromise) {
+          indexPromise = fetch(
+            "/search-index.json"
+          ).then(function (response) {
+            if (!response.ok) {
+              throw new Error("Search index unavailable");
+            }
+
+            return response.json();
+          }).catch(function (error) {
+            indexPromise = null;
+            throw error;
+          });
+        }
+
+        return indexPromise;
+      }
+
+      function openSearch() {
+        panel.hidden = false;
+        button.setAttribute("aria-expanded", "true");
+        input.focus();
+      }
+
+      function closeSearch() {
+        panel.hidden = true;
+        button.setAttribute("aria-expanded", "false");
+        button.focus();
+      }
+
+      button.addEventListener("click", function () {
+        if (panel.hidden) {
+          openSearch();
+        } else {
+          closeSearch();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        const activeTag = document.activeElement.tagName;
+
+        if (
+          (
+            event.key === "/" &&
+            !event.metaKey &&
+            !event.ctrlKey &&
+            !event.altKey &&
+            !["INPUT", "TEXTAREA"].includes(activeTag)
+          ) ||
+          (
+            (event.metaKey || event.ctrlKey) &&
+            event.key.toLowerCase() === "k"
+          )
+        ) {
+          event.preventDefault();
+          openSearch();
+        }
+
+        if (event.key === "Escape" && !panel.hidden) {
+          panel.hidden = true;
+          button.setAttribute("aria-expanded", "false");
+          button.focus();
+        }
+      });
+
+      input.addEventListener("input", async function () {
+        const query = input.value.trim().toLowerCase();
+
+        results.replaceChildren();
+
+        if (query.length < 2) {
+          status.textContent = "Type at least 2 characters to search.";
+          return;
+        }
+
+        status.textContent = "Searching...";
+
+        try {
+          const pages = await loadIndex();
+          const terms = query.split(/\s+/);
+
+          const matches = pages.map(function (page) {
+            const title = page.title || "Untitled page";
+            const content = (page.content || "").toLowerCase();
+            const searchable = (title + " " + content).toLowerCase();
+
+            const score = terms.reduce(function (total, term) {
+              if (!searchable.includes(term)) return -10000;
+
+              return total +
+                (title.toLowerCase().includes(term) ? 5 : 0) +
+                (content.split(term).length - 1);
+            }, 0);
+
+            return { page: page, score: score };
+          }).filter(function (item) {
+            return item.score >= 0;
+          }).sort(function (a, b) {
+            return b.score - a.score;
+          }).slice(0, 12);
+
+          if (!matches.length) {
+            status.textContent =
+              "No results found. Try different keywords.";
+            return;
+          }
+
+          status.textContent = matches.length +
+            (matches.length === 12
+              ? " or more results"
+              : " results found");
+
+          matches.forEach(function (item) {
+            const li = document.createElement("li");
+            const link = document.createElement("a");
+
+            link.href = item.page.url;
+            link.textContent = item.page.title || item.page.url;
+
+            li.appendChild(link);
+
+            const excerpt = document.createElement("p");
+            const text = (item.page.content || "")
+              .replace(/\s+/g, " ")
+              .trim();
+
+            excerpt.textContent = text.length > 170
+              ? text.slice(0, 170) + "..."
+              : text;
+
+            li.appendChild(excerpt);
+            results.appendChild(li);
+          });
+        } catch (error) {
+          status.textContent =
+            "Search could not load. Please refresh and try again.";
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
